@@ -1,8 +1,11 @@
 # You may need to install 'image' and 'qrcode' modules
 import qrcode
+import random
+import string
 
-input_URL = "hamza hammadi"
-
+TheInput = input('Type the text you want to convert: ')
+name = string.ascii_letters + string.digits
+fileName = "".join(random.sample(name,10)) + '.png'
 qr = qrcode.QRCode(
     version=1,
     error_correction=qrcode.constants.ERROR_CORRECT_L,
@@ -10,10 +13,10 @@ qr = qrcode.QRCode(
     border=4,
 )
 
-qr.add_data(input_URL)
+qr.add_data(input)
 qr.make(fit=True)
 
 img = qr.make_image(fill_color="skyblue", back_color="white")
-img.save("qrcode.png")
+img.save(fileName)
 
 print(qr.data_list)
