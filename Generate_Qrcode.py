@@ -13,7 +13,7 @@ qr = qrcode.QRCode(
     border=4,
 )
 
-qr.add_data(input)
+qr.add_data(TheInput)
 qr.make(fit=True)
 
 img = qr.make_image(fill_color="skyblue", back_color="white")
